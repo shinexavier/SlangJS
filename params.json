@@ -1,0 +1,6 @@
+{
+  "name": "Slangjs",
+  "tagline": "A JavaScript Interpreter for SLANG",
+  "body": "# SlangJS\r\nA JavaScript Interpreter for SLANG\r\n\r\nThis project is a personal learning project in compiler construction. It is an attempt to port the interpreter (written in C#) that was created by my mentor and friend Praseed Pai K.T (a.k.a Pai) as part of his teaching endeavours. It has been a life changing experience and nothing describes the euphoria I get considering the fact I too have hand-coded an interpreter!\r\n\r\nThe code is wired based on the e-Book, written by the author himself, available in the Downloads section from http://slangfordotnet.codeplex.com/\r\n\r\n*The whole exercise is achieved in 6 Steps (Step 5 from the original 7 steps have been ignored thereby skipping compilation) as followed in the e-Book.\r\n\r\n*The code leverages Node.JS in step 7 for reading a valid SLANG program file (some samples have been provided in the programs folder). There is no dependency with Node.JS till Step 6.\r\n\r\n*The interpreter have been bundled with a simple HTML code editor for anyone to write and run SLANG programs. Here's the link to that.\r\n\r\n\r\n\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
