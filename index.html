@@ -1,66 +1,101 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <title>Slang.JS by shinexavier</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-        <h1>Slang.JS</h1>
-        <h2>A JavaScript Interpreter for SLANG</h2>
-        <a href="https://github.com/shinexavier/SlangJS" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+      <header>
+        <h1>Slang.JS</h1>
+        <p>A JavaScript Interpreter for SLANG</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/shinexavier/SlangJS" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/shinexavier/SlangJS/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/shinexavier/SlangJS/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
 <a id="slangjs" class="anchor" href="#slangjs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Slang.JS</h1>
 
-<p>A JavaScript Interpreter for SLANG</p>
+<h3>
+<a id="a-javascript-interpreter-for-slang" class="anchor" href="#a-javascript-interpreter-for-slang" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A JavaScript Interpreter for SLANG</h3>
 
-<p>This project is a personal learning project in compiler construction. It is an attempt to port the interpreter (written in C#) that was created by my mentor and friend Praseed Pai K.T (a.k.a Pai) as part of his teaching endeavours. It has been a life changing experience and nothing describes the euphoria I get considering the fact I too have hand-coded an interpreter!</p>
+<hr>
+
+<p>This project is a personal learning project in compiler construction. It is an attempt to port the interpreter (written in C#) that was created by my mentor and friend Praseed Pai K.T (a.k.a Pai) as part of his teaching endeavours.</p>
 
 <p>The code is wired based on the e-Book, written by the author himself, available in the Downloads section from <a href="http://slangfordotnet.codeplex.com/">http://slangfordotnet.codeplex.com/</a></p>
 
-<p>*The whole exercise is achieved in 6 Steps (Step 5 from the original 7 steps have been ignored thereby skipping compilation) as followed in the e-Book.</p>
+<ul>
+<li><p>The whole exercise is achieved in 6 Steps (Step 5 from the original 7 steps have been ignored thereby skipping compilation) as followed in the e-Book.</p></li>
+<li><p>The code leverages Node.JS in step 7 for reading a valid SLANG program file (some samples have been provided in the programs folder). There is no dependency with Node.JS till Step 6. But it would be good to use Node.JS throughout to debug and see the JS console logs.</p></li>
+<li><p>The interpreter have been bundled with a simple HTML code editor for anyone to write and run SLANG programs. Here's the <a href="SlangInterpreter.html">Slang Interpreter</a>.</p></li>
+</ul>
 
-<p>*The code leverages Node.JS in step 7 for reading a valid SLANG program file (some samples have been provided in the programs folder). There is no dependency with Node.JS till Step 6.</p>
+<hr>
 
-<p>*The interpreter have been bundled with a simple HTML code editor for anyone to write and run SLANG programs. Please write your first SLANG program <a href="SlangInterpreter.html">here</a>.</p>
-        </section>
+<h3>
+<a id="the-grammar-ebnf-for-slang-is-as-listed-below" class="anchor" href="#the-grammar-ebnf-for-slang-is-as-listed-below" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Grammar (EBNF) for SLANG is as listed below:</h3>
 
-        <aside id="sidebar">
-          <a href="https://github.com/shinexavier/SlangJS/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/shinexavier/SlangJS/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+<ul>
+<li>Module ::= (Procedure)+</li>
+<li>Procedure ::= FUNCTION type func_name '('arglist')' stmts END</li>
+<li>type ::= NUMERIC | STRING | BOOLEAN</li>
+<li>arglist ::= '(' (type arg_name | ',')+ ')'</li>
+<li>stmts ::= (stmt)+</li>
+<li>stmt ::= vardeclstmt | printstmt | assignmentstmt | callstmt | ifstmt | whilestmt | returnstmt</li>
+<li>vardeclstmt ::= type variable ';'</li>
+<li>printstmt ::= PRINT expr ';'</li>
+<li>assignmentstmt ::= variable '=' value ';'</li>
+<li>ifstmt ::= IF '('expr')' THEN stmts (| (ELSE stmts)) ENDIF</li>
+<li>whilestmt ::= WHILE '('expr')' stmts WEND</li>
+<li>returnstmt ::= Return expr ';'</li>
+<li>expr ::= BExpr</li>
+<li>BExpr ::= LExpr LOGIC_OP BExpr</li>
+<li>LExpr ::= RExpr REL_OP LExpr</li>
+<li>RExpr ::= Term ADD_OP RExpr</li>
+<li>Term ::= Factor MUL_OP Term</li>
+<li>Factor ::= NUMERIC | STRING | TRUE | FALSE | variable | '(' expr ')' | ('+'|'-'|'!') Factor | callexpr</li>
+<li>callexpr ::= funcname '(' actuals ')'</li>
+<li>LOGIC_OP ::= '&amp;&amp;' | '||'</li>
+<li>REL_OP ::= '&gt;' | '&lt;' | '&gt;=' | '&lt;=' | '&lt;&gt;' | '=='</li>
+<li>MUL_OP ::= '*' |'/'</li>
+<li>ADD_OP ::= '+' |'-'</li>
+</ul>
 
-          <p class="repo-owner"><a href="https://github.com/shinexavier/SlangJS"></a> is maintained by <a href="https://github.com/shinexavier">shinexavier</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
+<p>Here is the <a href="SyntaxDiagram.xhtml">Syntax Diagram</a> corresponding to the Grammar above.</p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/shinexavier">shinexavier</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
     </div>
-
-  
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
   </body>
 </html>
